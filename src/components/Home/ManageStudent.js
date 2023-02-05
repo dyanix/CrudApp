@@ -149,13 +149,13 @@ const handleSave = async (id) => {
     </div>
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <p style={{ marginRight: "15px" }}><b>Landmark: </b> 
-        <InputControl type="text" name="firstName" value={editingStudent.landmark} onChange={handleChange} />
+        <InputControl type="text" name="landmark" value={editingStudent.landmark} onChange={handleChange} />
       </p>
       <p style={{ marginRight: "15px" }}><b>City:</b> 
-        <InputControl type="text" name="middleName" value={editingStudent.city} onChange={handleChange} />
+        <InputControl type="text" name="city" value={editingStudent.city} onChange={handleChange} />
       </p>
       <p style={{ marginRight: "15px" }}><b>Pincode:</b> 
-        <InputControl type="text" name="lastName" value={editingStudent.pincode} onChange={handleChange}  pattern='[0-9]{6}'maxLength='6' />
+        <InputControl type="text" name="pincode" value={editingStudent.pincode} onChange={handleChange}  pattern='[0-9]{6}'maxLength='6' />
       </p>
     </div>
     <div style={{ display: "flex", justifyContent: "space-between" }}>

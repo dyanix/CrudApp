@@ -48,13 +48,9 @@ function ManageStudent() {
     setEditingStudent({...editingStudent, [e.target.name]: e.target.value});
   };
 
-  
-      
-  
-
-const handleSave = async (student) => {
+const handleSave = async (id) => {
     try {
-      const documentRef =  doc(db, "students" ,student );
+      const documentRef =  doc(db, "students" , id );
          await updateDoc(documentRef,{
         firstName: editingStudent.firstName,
         middleName: editingStudent.middleName,

@@ -53,8 +53,8 @@ function ManageStudent() {
 
 const handleSave = async (id) => {
     try {
-      const documentRef =  doc(db, "students" , id );
-         await updateDoc(documentRef,{
+      // const documentRef =  doc(db, "students" );
+         await updateDoc(doc(db, `students/${id}` ),{
         firstName: editingStudent.firstName,
         middleName: editingStudent.middleName,
         lastName: editingStudent.lastName,
@@ -66,15 +66,24 @@ const handleSave = async (id) => {
         landmark: editingStudent.landmark,
         city:editingStudent.city,
         pincode :editingStudent.pincode
-
+       
       });
-      console.log("Document written with ID: ", documentRef.id);
+      // console.log("Document written with ID: ", documentRef.id);
       setStudents(students.map(student => student.id === editingStudent.id ? editingStudent : student));
       setMode("view");
+      toast.success("Student updated successfully");
+     
     } catch (err) {
       console.error(err);
+      toast.error("Failed to update student, please try again later");
     }
   };
+
+
+
+
+
+
 
 
   const handleDelete = async (id) => {

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import InputControl from "../InputControl/InputControl";
 import styles from "./Home.module.css";
-import { db } from '../../firebase'
-import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function AddStudent() {
 
@@ -60,20 +64,30 @@ function AddStudent() {
    
 
     const handleSubmit = async (e) => {
-        const studentRef = await addDoc(collection(db, "students"), {
-            firstName: firstName,
-            middleName: middleName,
-            lastName: lastName,
-            classNumber: classNumber,
-            division: division,
-            rollNumber: rollNumber,
-            addressLine1: addressLine1,
-            addressLine2: addressLine2,
-            landmark: landmark,
-            city: city,
-            pincode: pincode
-        });
-        console.log("Document written with ID: ", studentRef.id);
+        if(!firstName || middleName || lastName || classNumber || division ||  rollNumber|| addressLine1 || landmark || city || pincode){
+            toast.error("Please provide value in each input field")
+        }
+        else{
+            
+            const studentRef = await addDoc(collection(db, "students"), {
+                firstName: firstName,
+                middleName: middleName,
+                lastName: lastName,
+                classNumber: classNumber,
+                division: division,
+                rollNumber: rollNumber,
+                addressLine1: addressLine1,
+                addressLine2: addressLine2,
+                landmark: landmark,
+                city: city,
+                pincode: pincode,
+               
+            });
+            console.log("Document written with ID: ", studentRef.id);
+            toast.success("Student added successfully");
+        }
+       
+        
     }
 
 

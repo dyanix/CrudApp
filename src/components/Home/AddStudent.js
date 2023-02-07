@@ -64,7 +64,7 @@ function AddStudent() {
    
 
     const handleSubmit = async (e) => {
-        if(!firstName || middleName || lastName || classNumber || division ||  rollNumber|| addressLine1 || landmark || city || pincode){
+        if(!firstName || !middleName || !lastName || !classNumber || !division ||  !rollNumber|| !addressLine1 || !landmark || !city || !pincode){
             toast.error("Please provide value in each input field")
         }
         else{

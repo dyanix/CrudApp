@@ -9,6 +9,9 @@ import { AiOutlineEye } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import { RiDeleteBinLine } from "react-icons/ri"
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function ManageStudent() {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState({});
@@ -79,6 +82,7 @@ const handleSave = async (id) => {
       try {
         await deleteDoc(doc(db, "students", id));
         setStudents(students.filter((s) => s.id !== id));
+        toast.success("Student deleted successfully");
       } catch (err) {
         console.error(err);
       }

@@ -54,7 +54,7 @@ function ManageStudent() {
 const handleSave = async (id) => {
     try {
       // const documentRef =  doc(db, "students" );
-         await updateDoc(doc(db, `students/${id}` ),{
+         await updateDoc(doc(db, "students" ,editingStudent.id),{
         firstName: editingStudent.firstName,
         middleName: editingStudent.middleName,
         lastName: editingStudent.lastName,
@@ -78,11 +78,6 @@ const handleSave = async (id) => {
       toast.error("Failed to update student, please try again later");
     }
   };
-
-
-
-
-
 
 
 

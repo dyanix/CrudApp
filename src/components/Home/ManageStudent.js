@@ -53,7 +53,7 @@ function ManageStudent() {
 
 const handleSave = async (id) => {
     try {
-      // const documentRef =  doc(db, "students" );
+      
          await updateDoc(doc(db, "students" ,editingStudent.id),{
         firstName: editingStudent.firstName,
         middleName: editingStudent.middleName,
@@ -68,9 +68,9 @@ const handleSave = async (id) => {
         pincode :editingStudent.pincode
        
       });
-      // console.log("Document written with ID: ", documentRef.id);
+     
       setStudents(students.map(student => student.id === editingStudent.id ? editingStudent : student));
-      setMode("view");
+     
       toast.success("Student updated successfully");
      
     } catch (err) {

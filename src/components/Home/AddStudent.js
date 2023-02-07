@@ -149,12 +149,15 @@ function AddStudent() {
                     <div>
                         <label for='rollNumber'></label>
                         <InputControl
-                            type='text'
+                       
+                            type='number'
                             id='rollNumber'
                             onChange={(e) => handleInputChange(e)}
-                            value={rollNumber}
+                            value={rollNumber}                      
                             pattern='[0-9]{2}'
                             maxLength='2'
+                            min="1" 
+                           
                             placeholder="Roll Number"
                             required
                         />
@@ -211,12 +214,14 @@ function AddStudent() {
                     <div>
                         <label for='pincode'></label>
                         <InputControl
-                            type='text'
+                            type='number'
                             id='pincode'
                             onChange={(e) => handleInputChange(e)}
                             value={pincode}
                             pattern='[0-9]{6}'
                             maxLength='6'
+                            min="100000"
+                           
                             placeholder="Pincode"
                             required
                         />
